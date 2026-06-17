@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Leaderboard{% endblock %}
+
+{% block content %}
+    <h1>Leaderboard</h1>
+    
+    <form method="get" id="filter-form">
+        <select name="test_type" onchange="document.getElementById('filter-form').submit();">
+            {% for code, label in test_types %}
+                <option value="{{ code }}" {% if current_filters.test_type == code %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+        
+        <select name="brand" onchange="document.getElementById('filter-form').submit();">
+            <option value="">All Brands</option>
+            {% for brand in brands %}
+                <option value="{{ brand.id }}" {% if current_filters.brand == brand.id|stringformat:"s" %}selected{% endif %}>{{ brand.name }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Pilot</th>
+                <th>Car</th>
+                <th>Stage</th>
+                <th>Time (s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ record.user_car.user.username }}</td>
+                    <td>{{ record.user_car.car_base.brand.name }} {{ record.user_car.car_base.name }}</td>
+                    <td>{{ record.user_car.stage }}</td>
+                    <td>{{ record.time_seconds }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No records found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

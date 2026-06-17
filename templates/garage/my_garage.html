@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}My Garage{% endblock %}
+{% block content %}
+<div style="background: rgba(0,0,0,0.7); padding: 20px; border-radius: 10px;">
+    <h1>My Garage</h1>
+    <a href="{% url 'car_leaderboard' %}" style="color: #09f;"><- Back to Leaderboard</a>
+    
+    <div style="margin-top: 30px; border: 1px solid #333; padding: 20px; border-radius: 10px;">
+        <h3>Add New Car</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" style="background: #09f; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Add Car</button>
+        </form>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <h3>My Cars</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+            {% for car in user_cars %}
+            <div style="background: #111; border: 1px solid #333; padding: 15px; border-radius: 8px;">
+                <h4>{{ car.car_base.brand.name }} {{ car.car_base.name }}</h4>
+                <p>Engine: {{ car.engine }}</p>
+                <p>Stage: {{ car.stage }} | Year: {{ car.year }}</p>
+                <a href="{% url 'edit_car' car.id %}" style="color: #09f;">Edit</a> |
+                <a href="{% url 'delete_car' car.id %}" style="color: yellow; text-decoration: none;">Delete</a>
+            </div>
+            {% empty %}
+                <p>Garage is empty.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

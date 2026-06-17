@@ -1,0 +1,80 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 70vh;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    text-shadow: none !important;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #ccc;
+    margin-bottom: 40px;
+    text-shadow: none !important;
+}
+
+.glass-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: left;
+    transition: 0.3s;
+    box-shadow: none !important;
+}
+
+.card-icon {
+    font-size: 24px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.card-title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-shadow: none !important;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.cta-button {
+    margin-top: 50px;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    box-shadow: none !important;
+}
+
+.cta-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

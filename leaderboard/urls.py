@@ -1,9 +1,7 @@
 
-from importlib.resources import path
-
-from django import views
-
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('',views.leaderboard_home, name='leaderboard_home'),
+    path('', views.leaderboard_view, name='car_leaderboard'),
 ]

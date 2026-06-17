@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - DragLog{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <h1 class="hero-title">DRAGLOG</h1>
+    <h2 class="hero-subtitle">BE FAST.LOG RUNS.PROVE IT.</h2>
+
+    <div class="glass-cards">
+        <div class="glass-card">
+           
+            <div class="card-title">DragLog</div>
+            <p class="card-text">
+                DragLog — its decentralised platform for tracking your car's performance.
+            </p>
+        </div>
+
+        <div class="glass-card">
+            
+            <div class="card-title">Telemetry</div>
+            <p class="card-text">
+                Download logs of telemetry data for acceleration from 0-100 km/h, 0-200 km/h, 100-200 km/h or the clean time on the quarter mile (400m).
+            </p>
+        </div>
+
+        <div class="glass-card">
+            
+            <div class="card-title">Garage</div>
+            <p class="card-text">
+                Create your own private garage, maintain a list of modifications, and prove your car's real-world performance in the community leaderboard.
+            </p>
+        </div>
+    </div>
+
+    {% if not user.is_authenticated %}
+    <a href="{% url 'car_leaderboard' %}" class="cta-button">[ START LOGGING ] ></a>
+    {% endif %}
+</div>
+{% endblock %}
