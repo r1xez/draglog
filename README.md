@@ -61,4 +61,4 @@
 -   `templates/` — HTML шаблони сторінок.
 
 ---
-Розроблено для спільноти автолюбителів. [DragLog GitHub](https://github.com/r1xez/draglog)
+
