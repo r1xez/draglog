@@ -127,5 +127,5 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'car_leaderboard'
-LOGOUT_REDIRECT_URL = 'car_leaderboard'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
